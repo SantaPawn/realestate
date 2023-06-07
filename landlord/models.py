@@ -26,7 +26,7 @@ class Complaint(models.Model):
     summary = models.CharField(max_length=200)
     tenant = models.ForeignKey(User)
     room = models.ForeignKey(Room)
-    property_ = models.ForeignKey(Property)
+    property = models.ForeignKey(Property)
     others = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     reporter = models.ForeignKeyField(User,)
@@ -37,8 +37,8 @@ class Contract(models.Model):
     landlord = models.ForeignKey(User)
     tenant = models.ForeignKey(User, on_delete=models.CASCADE)
     room = models.ForeignKey(Room)
-    contract_doc = models.FileField(upload_to='')
-    contract_accepted = models.BooleanField(null=True, verbose_name="I Agree.")
+    contract_document = models.FileField(upload_to='')
+    contract_accepted = models.BooleanField(default= false)
 
 
     
