@@ -20,15 +20,15 @@ class Room(models.Model):
 
 
 class Complaint(models.Model):
-    ten = 'ten'
-    rm = 'rm'
-    prop = 'prop'
-    oth = 'oth'
+    tenant = 'tenant'
+    room = 'room'
+    property = 'property'
+    others = 'others'
     options = [
-            ('ten', 'tenant'),
-            ('rm', 'room'),
-            ('prop','property'),
-            ('oth', 'others'),
+            ('tenant', 'tenant'),
+            ('room', 'room'),
+            ('property','property'),
+            ('others', 'others'),
         ]
 
     kind = models.CharField(max_length=200, choices=options)
@@ -70,7 +70,7 @@ class Profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_type = models.CharField(max_length=20, default=landlord, choices=user_type_opts )
-    phone_number = models.CharField(max_length=20, db_index=True, blank=True, null=-True)
+    phone_number = models.CharField(max_length=20, db_index=True)
     secondary_phone_number = models.CharField(max_length=20, blank=True)
     address = models.CharField(max_length=200, blank=True, null=True)
     gender = models.CharField(max_length=20, blank=False,choices=gender_opts)
